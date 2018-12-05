@@ -11,6 +11,9 @@
  */
 
 function sayHello() {
+  var hello = document.getElementById('canvas1').getContext('2d');
+  hello.font = '48px sans-serif';
+  hello.strokeText('Hello, World!', 10, 50);
 
 }
 
@@ -37,8 +40,37 @@ function sayHello() {
  *       it impossible to draw the rectangle within the bounds of the canvas
  */
 
-function drawRectangle() {
 
+
+function drawRectangle() {
+  let height = prompt("Enter a height for the rectangle.")
+  let width = prompt("Enter a width for the rectangle.")
+  let xCoord = prompt("Enter an x-coordinate.")
+  let yCoord = prompt("Enter a y-coordinate.")
+
+  if (height < 1) {
+    alert("Your height is too small.")
+  } else if (height > 250) {
+    alert("The rectangle won't fit on the canvas")
+  }
+  if (width < 1) {
+    alert("Your width is too small.")
+  } else if (width > 250) {
+    alert("The rectangle won't fit on the canvas")
+  }
+  if (xCoord < 5 || xCoord > 250) {
+    alert("Your x-coordinate is too small.")
+  } else if (xCoord > 250) {
+    alert("The rectangle won't fit on the canvas")
+  }
+  if (yCoord < 5 || yCoord > 250) {
+    alert("Your y-coordinate is too small.")
+  } else if (yCoord > 250) {
+    alert("The rectangle won't fit on the canvas")
+  }
+
+  var rectAngle = document.getElementById('canvas2').getContext('2d');
+  rectAngle.strokeRect(height, width, xCoord, yCoord);
 }
 
 /*
