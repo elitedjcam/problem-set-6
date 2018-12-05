@@ -100,31 +100,32 @@ function drawRectangle() {
 
 function drawColoredRectangle() {
   let color = prompt("Enter a color.")
+  let rectangleColor;
   if (color = "red") {
-    color = "red";
+    rectangleColor = "red";
   }
   if (color = "black") {
-    color = "black";
+    rectangleColor = "black";
   }
   if (color = "blue") {
-    color = "blue";
+    rectangleColor = "blue";
   }
   if (color = "green") {
-    color = "green";
+    rectangleColor = "green";
   }
   if (color = "orange") {
-    color = "orange";
+    rectangleColor = "orange";
   }
   if (color = "purple") {
-    color = "purple";
+    rectangleColor = "purple";
   }
   if (color = "yellow") {
-    color = "yellow";
-  } 
+    rectangleColor = "yellow";
+  }
 
   var colorRect = document.getElementById('canvas3').getContext('2d');
+  colorRect.fillStyle = rectangleColor
   colorRect.fillRect(10, 10, 100, 50)
-  colorRect.fillStyle = color
 }
 /*
  * Triangle. 5 points.
