@@ -170,8 +170,42 @@ function drawColoredRectangle() {
  */
 
 function drawTriangle() {
-
+  let xcoord=10;
+  let ycoord=10;
+  let a;
+  let b;
+  let c;
+  let triangle = document.getElementById("canvas4");
+  let context = triangle.getContext("2d");
+  context.clearRect(0, 0, triangle.width, triangle.height);
+  while(true){
+	a = Number(prompt("Enter the length of the first side."));
+	b = Number(prompt("Enter the length of the second side."));
+	c = Number(prompt("Enter the length of the hypotenuse."));
+	if (((a**2) + (b**2) == (c**2)) && a > 0 && b > 0 && c > 0 && triangle.width - x - a >= 0 && triangle.height - y - b >= 0){
+		break;
+	}else{
+		alert("That is not a valid triangle")
+    break;
+	}
+  }
+ //Line A
+ context.beginPath(); //Begins a path
+ context.moveTo(xcoord,ycoord); //Choses the starting point
+ context.lineTo(xcoord,ycoord+a); //Line A coordinates: It is a vertical line, therefore the same x value but different y-value
+ context.stroke(); //Draws the line
+ //Line B
+ context.beginPath();
+ context.moveTo(xcoord,ycoord+a);
+ context.lineTo(xcoord+b,ycoord+a);
+ context.stroke();
+ //Hypotenuse
+ context.beginPath();
+ context.moveTo(xcoord,ycoord);
+ context.lineTo(xcoord+b,ycoord+a);
+ context.stroke();
 }
+
 
 /*
  * Smile. 7 points.
