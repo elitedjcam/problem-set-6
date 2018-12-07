@@ -101,31 +101,44 @@ function drawRectangle() {
 function drawColoredRectangle() {
   let color = prompt("Enter a color.")
   let rectangleColor;
-  if (color = "red") {
-    rectangleColor = "red";
+  if (color == "red") {
+    var colorRect = document.getElementById('canvas3').getContext('2d');
+    colorRect.fillStyle = "red"
+    colorRect.fillRect(10, 10, 100, 50)
   }
-  if (color = "black") {
-    rectangleColor = "black";
+  if (color == "black") {
+    var colorRect = document.getElementById('canvas3').getContext('2d');
+    colorRect.fillStyle = "black"
+    colorRect.fillRect(10, 10, 100, 50)
   }
-  if (color = "blue") {
-    rectangleColor = "blue";
+  if (color == "blue") {
+    var colorRect = document.getElementById('canvas3').getContext('2d');
+    colorRect.fillStyle = "blue"
+    colorRect.fillRect(10, 10, 100, 50)
   }
-  if (color = "green") {
-    rectangleColor = "green";
+  if (color == "green") {
+    var colorRect = document.getElementById('canvas3').getContext('2d');
+    colorRect.fillStyle = "green"
+    colorRect.fillRect(10, 10, 100, 50)
   }
-  if (color = "orange") {
-    rectangleColor = "orange";
+  if (color == "orange") {
+    var colorRect = document.getElementById('canvas3').getContext('2d');
+    colorRect.fillStyle = "orange"
+    colorRect.fillRect(10, 10, 100, 50)
   }
-  if (color = "purple") {
-    rectangleColor = "purple";
+  if (color == "purple") {
+    var colorRect = document.getElementById('canvas3').getContext('2d');
+    colorRect.fillStyle = "purple"
+    colorRect.fillRect(10, 10, 100, 50)
   }
-  if (color = "yellow") {
-    rectangleColor = "yellow";
+  if (color == "yellow") {
+    var colorRect = document.getElementById('canvas3').getContext('2d');
+    colorRect.fillStyle = "yellow"
+    colorRect.fillRect(10, 10, 100, 50)
   }
-
-  var colorRect = document.getElementById('canvas3').getContext('2d');
-  colorRect.fillStyle = rectangleColor
-  colorRect.fillRect(10, 10, 100, 50)
+  if (color != "red" && color != "blue" && color != "black" && color != "green" && color != "orange" && color != "yellow" && color != "purple") {
+    alert(color + " is not a supported color.")
+  }
 }
 /*
  * Triangle. 5 points.
