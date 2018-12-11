@@ -233,7 +233,7 @@ function drawSmileyFace() {
   let ctx = smile.getContext('2d');
   ctx.clearRect(0, 0, smile.width, smile.height);
 	while(true){
-		radius=Number(prompt("Please enter a good radius please"));
+		radius=Number(prompt("Please enter a valid radius."));
 		if(radius>=1 && radius<=smile.width && Number.isInteger(radius)){
 			break;
 		}
@@ -279,6 +279,13 @@ function drawSmileyFace() {
  */
 
 function drawStar() {
+  let outerRadius;
+  let innerRadius;
+  var canvas = document.getElementById('canvas6')
+  let ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.translate(125, 125)
+
 
 }
 
