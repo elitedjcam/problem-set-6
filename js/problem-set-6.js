@@ -228,12 +228,37 @@ function drawTriangle() {
 
 //arc(x, y, radius, startAngle, endAngle, anticlockwise)
 function drawSmileyFace() {
-  var canvas = document.getElementById('canvas').getContext('2d')
+  let radius;
+  let smile = document.getElementById('canvas5');
+  let ctx = smile.getContext('2d');
+  ctx.clearRect(0, 0, smile.width, smile.height);
+	while(true){
+		radius=Number(prompt("Please enter a good radius please"));
+		if(radius>=1 && radius<=smile.width && Number.isInteger(radius)){
+			break;
+		}
+	}
+  let x=smile.width;
+  let y=smile.height;
+  let eyeRadius=radius*.1
+  let mouthRadius=radius*.7
+  ctx.beginPath();
+  ctx.arc(x/2, y/2, radius, 0, Math.PI*2); // Face
+  ctx.stroke();
 
+  ctx.beginPath(); //Right Eye
+  ctx.arc(x/2 - radius/3, y/2-radius/4, eyeRadius,0, Math.PI*2);
+  ctx.stroke();
 
+  ctx.beginPath(); //Left Eye
+  ctx.arc(x/2+radius/3, y/2-radius/4, eyeRadius,0, Math.PI*2);
+  ctx.stroke();
 
-  
-}
+  ctx.beginPath(); //Mouth
+  ctx.arc(x/2, y/2, mouthRadius,0, Math.PI);
+  ctx.stroke();
+  }
+
 
 /*
  * Star. 9 points.
