@@ -283,8 +283,8 @@ function drawStar() {
     let ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      let outerRadius=Number(prompt())
-      let innerRadius=Number(prompt())
+      let outerRadius=Number(prompt("Please enter a valid outer radius."))
+      let innerRadius=Number(prompt("Please enter a valid inner radius."))
       if (outerRadius>=innerRadius && canvas.width>=outerRadius+125 && canvas.height>=outerRadius+125 && innerRadius>=1 && outerRadius>=1){
         let points=5;
         let outerx=[];
@@ -330,11 +330,37 @@ function drawStar() {
  */
 
 function drawStopSign() {
-let stopSign;
+  let canvas = document.getElementById('canvas7');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let side=80;
+    let center=[10+(side)/2+side/Math.sqrt(2), 10+(side/2)+(side/Math.sqrt(2))]
+    console.log(center)
+    let points=8;
+    let x=[];
+    let y=[];
 
-var canvas = document.getElementById('canvas7')
-let ctx = canvas.getContext('2d');
-ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for(let i=0;i<points;i++){
+      x.push(Math.cos(((Math.PI*2*i)/points)-Math.PI/8)*100+center[0]);
+      y.push(Math.sin(((Math.PI*2*i)/points)-Math.PI/8)*100+center[1]);
+    }
+    ctx.beginPath();
+    ctx.moveTo([x][0], y[0]);
+    for(let j=0;j<x.length;j++){
+      ctx.lineTo(x[j], y[j]);
+    }
+    ctx.lineTo(x[0], y[0]);
+    ctx.stroke();
+
+    ctx.fillStyle="red";
+    ctx.fill();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.textAlign="center";
+    ctx.font="56px Georgia";
+    ctx.fillStyle="white";
+    ctx.fillText("STOP", center[0], center[1]+15);
+    ctx.closePath()
 }
 
 /*
@@ -356,7 +382,24 @@ ctx.clearRect(0, 0, canvas.width, canvas.height);
  */
 
 function drawPyramid() {
-
+  let canvas = document.getElementById('canvas8');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let sideLength = Number(prompt("Enter a length for the side."));
+    let xcoordinate=10;
+    let ycoordinate=canvas.height-10;
+    let i=0;
+    line=1;
+    while(i<5){
+      for(let j=0+line;j<=5;j++){
+        ctx.strokeRect(xcoordinate,ycoordinate-sideLength,sideLength,sideLength);
+        xcoordinate+=sideLength;
+      }
+      xcoordinate=10+(sideLength/2)*line;
+      ycoordinate-=sideLength;
+      line++;
+      i++;
+    }
 }
 
 /*
@@ -389,13 +432,40 @@ function drawPyramid() {
  */
 
 function drawHouse() {
-let house;
-let base;
-let baseColor = prompt("Choose a color for the house.");
-let doorColor = prompt("Choose a color for the door.");
+  let canvas = document.getElementById('canvas9');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-var house = document.getElementById('canvas9')
-let ctx = canvas.getContext('2d');
-ctx.clearRect(0, 0, house.width, house.height);
-ctx.translate(512, 10)
-}
+    while(true){
+    doorColor=prompt("Enter a color for the door");
+    baseColor=prompt("Enter a color for the house");
+    if((doorColor=="brown" || doorColor=="blue" || doorColor=="green" || doorColor=="orange" || doorColor=="purple" || doorColor=="red" || doorColor=="yellow")
+    && (baseColor=="brown" || baseColor=="blue" || baseColor=="green" || baseColor=="orange" || baseColor=="purple" || baseColor=="red" || baseColor=="yellow")) {
+      break;
+    }
+    else{
+        alert("One or more of your colors is invalid")
+    }
+  }
+  let x=150;
+  let length=576;
+  let height=400;
+  let y=canvas.height-height-10;
+  ctx.beginPath();
+  ctx.fillStyle=baseColor;
+  ctx.fillRect(x,y,length,height);
+  ctx.fillStyle=doorColor;
+  ctx.fillRect(x+(length/2)-30,y+300,60,100);
+  ctx.fillStyle="gray";
+  ctx.moveTo(x,y);
+  ctx.lineTo(x+286,150);
+  ctx.lineTo(x+length,y);
+  ctx.lineTo(x,y);
+  ctx.fill();
+  ctx.fillStyle="#ADD8E6";
+  ctx.fillRect(300,y+100, 50, 50);
+  ctx.fillRect(526,y+100, 50, 50);
+  ctx.fillRect(300,y+200, 50, 50);
+  ctx.fillRect(526,y+200, 50, 50);
+  ctx.closePath();
+  }
